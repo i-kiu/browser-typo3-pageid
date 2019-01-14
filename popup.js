@@ -3,18 +3,18 @@
 // found in the LICENSE file.
 
 'use strict';
+let uid=0;
 
+let pageid = document.getElementById('pageid');
 
-let changeColor = document.getElementById('changeColor');
-chrome.storage.sync.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
+chrome.storage.local.get('pageid', function(data) {
+  console.log(data.pageid);
+  pageid.innerHTML=data.pageid;
 });
-changeColor.onclick = function(element) {
-    let color = element.target.value;
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.executeScript(
-          tabs[0].id,
-          {code: 'document.body.style.backgroundColor = "' + color + '";'});
-    });
-  };
+
+
+chrome.extension.onMessage.addListener(function(message, sender) {
+  console.log('onMessage Popup');
+  uid=message;
+  pageid.innerHTML=message;
+});

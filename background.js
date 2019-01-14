@@ -6,29 +6,30 @@
 
 chrome.runtime.onInstalled.addListener(function() {
   chrome.browserAction.setBadgeText({ text : ''})
-
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
-    console.log("The color is green.");
-  });
-
 });
 
 chrome.extension.onMessage.addListener(function(message, sender) {
     console.log('onMessage');
-    console.log(message);
-    console.log(sender);
-    chrome.browserAction.setBadgeText({ text : message})
+    chrome.browserAction.setBadgeText({ text : message});
+    chrome.storage.local.set({'pageid': message}, function() {
+      console.log("Save the PageId :"+message);
+    });
 });
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo) {
-  console.log(changeInfo);
+  //console.log(changeInfo);
   // Listen to messages from the payload.js script and write to popout.html
 
   if (changeInfo.status === 'loading') {
-    chrome.browserAction.setBadgeText({ text : '',tabId:tabId.id})
+    chrome.browserAction.setBadgeText({ text : '...',tabId:tabId.id})
   }
     if (changeInfo.status === 'complete') {
     //  chrome.browserAction.setBadgeText({ text : 'OK',tabId:tabId.id})
-      console.log('complete');
-
+     // console.log('complete');
+      //chrome.browserAction.setBadgeText({ text : '',tabId:tabId.id})
     }
+});
+
+
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+    console.log(changes)
 });
