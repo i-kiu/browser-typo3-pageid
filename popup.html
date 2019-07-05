@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      #pageid{
+        padding: 5px;
+      }
+      #pageid:hover {
+        background-color: #99f;
+      }
+      #pageid:active {
+        background-color: #9f9;
+        cursor: copy;
+      }
+    </style>
   </head>
   <body style="width: 200px;">
-      <p>The Typo3 Page-ID is <strong><span id="pageid"> not set.</span></strong></p>
+      <p>The Typo3 Page-ID is: <strong><span id="pageid"> not set.</span></strong></p>
+      <script src="js/jquery-3.4.1.min.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>
