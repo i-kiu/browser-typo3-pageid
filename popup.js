@@ -8,7 +8,7 @@ let uid=0;
 let pageid = document.getElementById('pageid');
 
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  var currTab = tabs[0];
+  let currTab = tabs[0];
   console.log(tabs);
   console.log(currTab);
   if (currTab) { // Sanity check
@@ -29,28 +29,30 @@ chrome.extension.onMessage.addListener(function(message, sender) {
 
 
 $('#pageid').on('click', function() {
-  console.log(this);
-  var range = document.createRange();
-  console.log(range);
-  range.selectNode(this);
-  console.log(range);
-  window.getSelection().addRange(range);
+  //console.log($(this));
+  //console.log($(this).text());
+  copyToClipboard($(this).text())
+});
 
-  var successful = false;
+function copyToClipboard(text) {
+  const input = document.createElement('input');
+  input.style.position = 'fixed';
+  input.style.opacity = 0;
+  input.value = text;
+  document.body.appendChild(input);
+  input.select();
+  let successful = false;
   try {
     // Now that we've selected the anchor text, execute the copy command
-    successful = document.execCommand('copy');
-    console.log(successful);
+    successful = document.execCommand('Copy');
   } catch(err) {
     successful = false;
     // whatever
   }
+  console.log(successful);
 
   if (!successful) {
     prompt("Your browser does not support insta-copy. Sorry.", $(this).text());
   }
-
-  // Remove the selections - NOTE: Should use
-  // removeRange(range) when it is supported
-  window.getSelection().removeAllRanges();
-});
+  document.body.removeChild(input);
+};
