@@ -1,32 +1,43 @@
 {
-	"name": "I-kiu Typo3 Page ID",
-	"version": "1.0",
-	"description": "Show the Page ID if present",
-	"permissions": [ "tabs", "contextMenus", "http://*/*", "https://*/*","activeTab","declarativeContent","storage"],
-	"options_page": "options.html",
-	"background": {
-	  "scripts": ["background.js"],
-	  "persistent": true
-	},
-	"content_scripts": [ {
-      "js": [ "content_script.js" ],
-      "matches": [ "http://*/*", "https://*/*" ]
-   } ],
-	 "browser_action": {
-          "default_title": "I-kiu Typo3 Page ID",
-		  "default_popup": "popup.html",
-		      "default_icon": {
-		        "16": "images/t3logo/favicon-16x16.png",
-		        "32": "images/t3logo/favicon-32x32.png",
-		        "96": "images/t3logo/favicon-96x96.png",
-		        "128": "images/t3logo/favicon-128x128.png"
-		      }
+  "name": "I-kiu Typo3 Page ID",
+  "version": "1.0",
+  "description": "Show the Page ID if present",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "clipboardWrite"
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/content_script.js"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "action": {
+    "default_title": "I-kiu Typo3 Page ID",
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "16": "images/t3logo/favicon-16x16.png",
+      "32": "images/t3logo/favicon-32x32.png",
+      "96": "images/t3logo/favicon-96x96.png",
+      "128": "images/t3logo/favicon-128x128.png"
+    }
   },
   "icons": {
-			"16": "images/t3logo/favicon-16x16.png",
-	        "32": "images/t3logo/favicon-32x32.png",
-	        "96": "images/t3logo/favicon-96x96.png",
-	        "128": "images/t3logo/favicon-128x128.png"
-    },
-    "manifest_version": 2
+    "16": "images/t3logo/favicon-16x16.png",
+    "32": "images/t3logo/favicon-32x32.png",
+    "96": "images/t3logo/favicon-96x96.png",
+    "128": "images/t3logo/favicon-128x128.png"
+  },
+  "manifest_version": 3
 }
