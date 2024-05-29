@@ -1,9 +1,8 @@
 {
   "name": "I-kiu Typo3 Page ID",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Show the Page ID if present",
   "permissions": [
-    "activeTab",
     "storage",
     "clipboardWrite"
   ],

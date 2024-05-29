@@ -5,5 +5,6 @@
 'use strict';
 chrome.runtime.onMessage.addListener(function (message, sender) {
     chrome.storage.local.set({'pageid': message});
+    chrome.action.setBadgeText({text: message});
 });
 
