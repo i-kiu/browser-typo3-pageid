@@ -5,6 +5,12 @@
 'use strict';
 chrome.runtime.onMessage.addListener(function (message, sender) {
     chrome.storage.local.set({'pageid': message});
-    chrome.action.setBadgeText({text: message});
+
+    let badgeText = "";
+    if (!isNaN(Number(message))) {
+        badgeText = message;
+    }
+
+    chrome.action.setBadgeText({text: badgeText});
 });
 
