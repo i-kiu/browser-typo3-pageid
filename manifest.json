@@ -1,7 +1,7 @@
 {
-  "name": "I-kiu Typo3 Page ID",
+  "name": "TYPO3 PID Helper",
   "version": "1.1.0",
-  "description": "Show the Page ID if present",
+  "description": "Show the Page ID if present in meta tags.",
   "permissions": [
     "storage",
     "clipboardWrite"
@@ -23,7 +23,7 @@
     "*://*/*"
   ],
   "action": {
-    "default_title": "I-kiu Typo3 Page ID",
+    "default_title": "TYPO3 PID Helper, made with ♥ by i-kiu",
     "default_popup": "html/popup.html",
     "default_icon": {
       "16": "images/t3logo/favicon-16x16.png",
