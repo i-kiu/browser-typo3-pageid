@@ -4,11 +4,15 @@
 
 'use strict';
 chrome.runtime.onMessage.addListener(function (message, sender) {
-    chrome.storage.local.set({'pageid': message});
+    let {pageid, url} = message;
+    chrome.storage.local.set({
+        'pageid': pageid,
+        'url': url,
+    });
 
     let badgeText = "";
-    if (!isNaN(Number(message))) {
-        badgeText = message;
+    if (!isNaN(Number(pageid))) {
+        badgeText = pageid;
     }
 
     chrome.action.setBadgeText({text: badgeText});

@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../webfonts/raleway-v28-latin-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url('../webfonts/raleway-v28-latin-600.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    width: 320px;
+    font-family: Raleway, sans-serif;
+    padding: 0 8px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    font-style: normal !important;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    background-image: none;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    border-color: black;
+    color: black;
+    outline: none;
+    white-space: pre-wrap;
+    -webkit-text-stroke: 0px;
+    transition: color 200ms ease-in-out, background-color 200ms ease-in-out, border-color 200ms ease-in-out;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    padding: 13px 31px;
+    text-decoration: none;
+    font-weight: 500 !important;
+    font-family: Raleway, Raleway, sans-serif !important;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.btn:not(.btn-disabled):hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.btn-primary {
+    background-color: #e94f1c;
+    color: white;
+    border-color: #e94f1c;
+}
+
+.btn-primary:not(.btn-disabled):hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.btn-disabled {
+    cursor: default;
+    opacity: .4;
+}
+
+#pageid {
+    padding: 5px;
+    cursor: copy;
+    transition: color 100ms ease-in-out, background-color 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+#pageid:hover {
+    background-color: #e94f1c;
+    color: white;
+    border-radius: 2px;
+    border-color: transparent;
+}
+
+.btn-inner {
+    font-size: .6rem;
+}

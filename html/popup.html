@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style>
-        #pageid {
-            padding: 5px;
-        }
-
-        #pageid:hover {
-            background-color: #99f;
-        }
-
-        #pageid:active {
-            background-color: #9f9;
-            cursor: copy;
-        }
-    </style>
-</head>
-<body style="width: 200px;">
-<p>The Typo3 Page-ID is: <strong><span id="pageid">not set.</span></strong></p>
-<script src="../scripts/popup.js"></script>
-</body>
+    <head>
+        <link rel="stylesheet" href="../styles/fontawesome.min.css">
+        <link rel="stylesheet" href="../styles/popup.css">
+    </head>
+    <body>
+        <p>The TYPO3 page id is: <strong><span id="pageid">not set.</span></strong></p>
+        <a href="#" id="page-link" target="_blank">url</a>
+        <div class="buttons">
+            <a href="#" id="backend-link" class="btn" target="_blank" data-tooltip="Only tested on v12+">Open in Backend <span class="btn-inner">(v12+)</span></a>
+            <button type="button" id="copy-pid" class="btn btn-primary"><i class="fa-regular fa-copy fa-beat"></i></button>
+        </div>
+        <script src="../scripts/popup.js"></script>
+    </body>
 </html>

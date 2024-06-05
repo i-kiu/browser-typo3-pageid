@@ -6,9 +6,15 @@
             pageid = "not set.";
         }
 
-        chrome.runtime.sendMessage(pageid);
+        chrome.runtime.sendMessage({
+            pageid,
+            url: window.location.href,
+        });
     };
-    update_pageid();
+
+    if (document.hasFocus()) {
+        update_pageid();
+    }
 
     window.addEventListener("focus", update_pageid);
 

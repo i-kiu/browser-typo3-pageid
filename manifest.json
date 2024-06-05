@@ -1,6 +1,6 @@
 {
   "name": "I-kiu Typo3 Page ID",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Show the Page ID if present",
   "permissions": [
     "storage",
